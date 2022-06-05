@@ -5,7 +5,7 @@
 
 ## 📦 CustomBoxy
 
-* [Introduction](customboxy/introduction.md)
+* [Introduction to CustomBoxy](customboxy/introduction-to-customboxy.md)
 
 ***
 
