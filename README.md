@@ -1,9 +1,10 @@
 ---
+cover: .gitbook/assets/zncIM (1).png
 coverY: 0
 ---
 
 # Welcome!
 
-## Welcome aboard!
+## About
 
-Welcome to the company wiki! Here you'll find everything you need to know about the company.
+Boxy is designed to overcome the limitations of Flutter's built-in layout widgets, it provides utilities for flex, custom multi-child layouts, dynamic widget inflation, slivers, and more!
