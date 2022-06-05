@@ -1,10 +1,10 @@
 # Introduction To Layout
 
-### Constraints go down, Sizes go up
-
 When Flutter was created, it set out to provide a render architecture that was simple, performant, and modular. Compare this to HTML or Android View, which have many complex, slow, and implementation-specific layout protocols.
 
 Most of the widgets you use in Flutter are actually pretty simple and elegant, there is rarely any magic, so try not to be intimidated by it!
+
+### Constraints go down, Sizes go up
 
 Layout in Flutter happens in a few steps:
 
@@ -14,6 +14,8 @@ Layout in Flutter happens in a few steps:
 4. Give self a size
 
 This is called the [RenderBox](https://api.flutter.dev/flutter/rendering/RenderBox-class.html) protocol, and is why animations in Flutter out-perform native Android and iOS.
+
+### Interactive Example
 
 Here's a DartPad that you can play around with:
 
