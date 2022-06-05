@@ -14,13 +14,7 @@ It has excellent documentation, test coverage, passes strict analysis rules, and
 #### Links
 
 {% embed url="https://pub.dev/packages/boxy" %}
-Pub Package
-{% endembed %}
 
 {% embed url="https://pub.dev/documentation/boxy/latest/" %}
-API Documentation
-{% endembed %}
 
 {% embed url="https://github.com/PixelToast/flutter-boxy" %}
-Source Code
-{% endembed %}
