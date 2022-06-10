@@ -2,7 +2,9 @@
 coverY: 0
 ---
 
-# About
+# Welcome
+
+![](<.gitbook/assets/zncIM (1).png>)
 
 Boxy is a Flutter package created to overcome the limitations of built-in layout widgets, it provides utilities for flex, custom multi-child layouts, dynamic widget inflation, slivers, and more!
 

@@ -1,6 +1,6 @@
 # Table of contents
 
-* [About](README.md)
+* [Welcome](README.md)
 * [Introduction To Layout](introduction-to-layout.md)
 
 ## 📦 CustomBoxy
