@@ -12,12 +12,10 @@ Before touching layout, we first need to understand the relationship between the
 
 If you have some experience in Flutter you are probably familiar with how State works, it's persistent and has lifecycle hooks that tell you when to initialize, build, and dispose.
 
-State is just a fancy delegate for ComponentElement so that Flutter doesn't have to expose its ugly internals to widget code, other than that Elements and States are essentially the same thing!
-
-
+State is just a fancy delegate for ComponentElement so that Flutter doesn't have to expose its ugly internals to widget code, other than that Element and State are essentially the same thing!
 
 {% hint style="info" %}
-There technically is no "widget tree" since widgets are more of a user-defined data structure that does not share a root node. The term is often conflated with the element tree, since elements form a real tree and provide a context.
+There technically is no "widget tree" since widgets are more of a user-defined data structure that does not share a root node. The term is often conflated with the element tree, since elements form a global tree and provide context.
 {% endhint %}
 
 ### Layout
