@@ -6,6 +6,16 @@ Most of the widgets you use in Flutter are actually pretty simple and elegant un
 
 ### Constraints go down, Sizes go up
 
+{% code title="over-simplification" %}
+```dart
+Size layout(BoxConstraints constraints) {
+  final childSize = child.layout(BoxConstraints()));
+  child.position(Offset.zero);
+  return childSize;
+}
+```
+{% endcode %}
+
 Layout in Flutter happens in a few steps:
 
 1. Pass [BoxConstraints](https://api.flutter.dev/flutter/rendering/BoxConstraints-class.html) to children
