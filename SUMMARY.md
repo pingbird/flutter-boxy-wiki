@@ -9,5 +9,7 @@
 
 ***
 
-* [🐦 Boxy Source](https://github.com/PixelToast/flutter-boxy)
+* [🐦 Source Code](https://github.com/PixelToast/flutter-boxy)
+* [📦 Pub](https://pub.dev/packages/boxy)
+* [📖 API Docs](https://pub.dev/documentation/boxy/latest/)
 * [📖 Wiki Source](https://github.com/PixelToast/flutter-boxy-wiki)
