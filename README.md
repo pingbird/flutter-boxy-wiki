@@ -10,11 +10,7 @@ layout: editorial
 
 Boxy is a Flutter package created to overcome the limitations of built-in layout widgets, it provides utilities for flex, custom multi-child layouts, dynamic widget inflation, slivers, and more!
 
-The package is ready for production use, it features:
-
-* Excellent documentation
-* Good test coverage
-* Passes strict analysis
+The package is ready for production use, it has excellent documentation, test coverage, and passes strict analysis.
 
 ### Features
 
