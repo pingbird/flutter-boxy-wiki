@@ -1,6 +1,6 @@
 ---
 coverY: 0
-layout: landing
+layout: editorial
 ---
 
 # Welcome
