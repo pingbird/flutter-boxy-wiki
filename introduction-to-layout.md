@@ -27,13 +27,13 @@ This is called the [RenderBox](https://api.flutter.dev/flutter/rendering/RenderB
 
 ### Interactive Example
 
+![](.gitbook/assets/image.png)
+
 Here's a DartPad that you can play around with:
 
 {% embed url="https://dartpad.dartlang.org/?id=0d12f9092860c0793e57eb3b9cad2926" %}
 DartPad - [square-opacity.dart](https://gist.github.com/PixelToast/0d12f9092860c0793e57eb3b9cad2926)
 {% endembed %}
-
-![](.gitbook/assets/image.png)
 
 It takes a child (Hello, World!) and ensures the height equals the width, the custom RenderObject also animates opacity to show how [Layer](https://api.flutter.dev/flutter/rendering/Layer-class.html)s work.
 
