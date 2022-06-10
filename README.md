@@ -1,5 +1,4 @@
 ---
-cover: .gitbook/assets/zncIM (1).png
 coverY: 0
 ---
 

@@ -1,8 +1,8 @@
 # Introduction To Layout
 
-When Flutter was created, it set out to provide a render architecture that was simple, performant, and modular. Compare this to HTML or Android View, which have many complex, slow, and implementation-specific layout protocols.
+When Flutter was created, it set out to provide a render architecture that was simple, performant, and modular. Compare this to [HTML](https://developer.chrome.com/articles/layoutng/) or Android [View](https://developer.android.com/reference/android/view/View)s, which have many complex, slow, and implementation-specific layout algorithms.
 
-Most of the widgets you use in Flutter are actually pretty simple and elegant, there is rarely any magic, so try not to be intimidated by it!
+Most of the widgets you use in Flutter are actually pretty simple and elegant under the hood, there is rarely any magic, so try not to be intimidated by it!
 
 ### Constraints go down, Sizes go up
 
@@ -25,7 +25,7 @@ DartPad - [square-opacity.dart](https://gist.github.com/PixelToast/0d12f9092860c
 
 It takes a child (hello world text) and sizes itself to be a square, it also animates opacity to show how [Layer](https://api.flutter.dev/flutter/rendering/Layer-class.html)s work.
 
-The actual layout algorithm itself is simple, the difficult part is just the boilerplate:
+The actual layout algorithm itself is simple, the hard part is just the boilerplate:
 
 1. Subclass [LeafRenderObjectWidget](https://api.flutter.dev/flutter/widgets/LeafRenderObjectWidget-class.html), [SingleChildRenderObjectWidget](https://api.flutter.dev/flutter/widgets/SingleChildRenderObjectWidget-class.html), or [MultiChildRenderObjectWidget](https://api.flutter.dev/flutter/widgets/MultiChildRenderObjectWidget-class.html)
 2. Implement [createRenderObject](https://api.flutter.dev/flutter/widgets/RenderObjectWidget/createRenderObject.html) / [updateRenderObject](https://api.flutter.dev/flutter/widgets/RenderObjectWidget/updateRenderObject.html) to pass variables to your RenderObject
@@ -39,7 +39,7 @@ The original goal of Boxy was to boil this down into a simple, intuitive delegat
 
 ### Resources
 
-&#x20;Here are a bunch of great resources on layouts:
+&#x20;Here are some good resources on layout:
 
 {% embed url="https://docs.flutter.dev/development/ui/layout/constraints" %}
 

@@ -9,4 +9,5 @@
 
 ***
 
-* [🐦 Contribute](https://github.com/PixelToast/flutter-boxy-wiki)
+* [🐦 Boxy Source](https://github.com/PixelToast/flutter-boxy)
+* [📖 Wiki Source](https://github.com/PixelToast/flutter-boxy-wiki)
