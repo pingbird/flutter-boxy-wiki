@@ -4,11 +4,23 @@ When Flutter was created, it set out to provide a render architecture that was s
 
 Most of the widgets you use in Flutter are actually pretty simple and elegant under the hood, there is rarely any magic, so try not to be intimidated by it!
 
-### Constraints go down, Sizes go up
+### The many trees
 
-{% code title="over-simplification" %}
+Before touching layout, we first need to understand the relationship between the Widget, Element, and Render trees.
+
+![](<.gitbook/assets/trees (1).png>)
+
+{% hint style="info" %}
+There technically is no "widget tree" since widgets are more of a user-defined data structure that does not share a root node. The term is often conflated with the element tree, since elements form a real tree and provide a context.
+{% endhint %}
+
+### Layout
+
+You can think of layout in Flutter as a bunch of functions that take in BoxConstraints and return a Size:
+
+{% code title="(oversimplification)" %}
 ```dart
-Size layout(BoxConstraints constraints) {
+layout(BoxConstraints constraints) {
   final childSize = child.layout(BoxConstraints()));
   child.position(Offset.zero);
   return childSize;
@@ -16,14 +28,11 @@ Size layout(BoxConstraints constraints) {
 ```
 {% endcode %}
 
-Layout in Flutter happens in a few steps:
+This is called the [RenderBox](https://api.flutter.dev/flutter/rendering/RenderBox-class.html) protocol, it's simplicity is what enables animations in Flutter to outperform native Android and iOS.
 
-1. Pass [BoxConstraints](https://api.flutter.dev/flutter/rendering/BoxConstraints-class.html) to children
-2. Lay out children
-3. Position children
-4. Give self a size
 
-This is called the [RenderBox](https://api.flutter.dev/flutter/rendering/RenderBox-class.html) protocol, it's simplicity enables animations in Flutter to out-perform native Android and iOS. The catch is that developers have to put in extra effort to constrain widgets and avoid those pesky unbounded / infinite size errors.
+
+
 
 ### Interactive Example
 
@@ -51,7 +60,7 @@ The original goal of Boxy was to boil this down into a simple, intuitive delegat
 
 ### Learn More
 
-&#x20;Here are some good resources on layout:
+Here are some good resources on layout:
 
 {% embed url="https://docs.flutter.dev/development/ui/layout/constraints" %}
 
