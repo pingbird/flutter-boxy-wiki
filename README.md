@@ -1,5 +1,4 @@
 ---
-coverY: 0
 layout: editorial
 ---
 
