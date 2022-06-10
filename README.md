@@ -18,10 +18,9 @@ The package is ready for production use, it features:
 
 ### Features
 
-|   |   |   |
-| - | - | - |
-|   |   |   |
-|   |   |   |
+{% content-ref url="customboxy/customboxy.md" %}
+[customboxy.md](customboxy/customboxy.md)
+{% endcontent-ref %}
 
 ### Getting Started
 

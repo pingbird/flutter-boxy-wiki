@@ -1,15 +1,14 @@
 # Table of contents
 
 * [Welcome](README.md)
-* [Introduction To Layout](introduction-to-layout.md)
+* [🔹 Introduction To Layout](introduction-to-layout.md)
 
-## 📦 CustomBoxy
+## 🟦 Custom Multi-Child Layouts <a href="#customboxy" id="customboxy"></a>
 
-* [Introduction to CustomBoxy](customboxy/introduction-to-customboxy.md)
+* [🔹 CustomBoxy](customboxy/customboxy.md)
 
 ***
 
-* [🐦 Source Code](https://github.com/PixelToast/flutter-boxy)
 * [📦 Pub](https://pub.dev/packages/boxy)
-* [📖 API Docs](https://pub.dev/documentation/boxy/latest/)
+* [🐙 Source Code](https://github.com/PixelToast/flutter-boxy)
 * [📖 Wiki Source](https://github.com/PixelToast/flutter-boxy-wiki)
