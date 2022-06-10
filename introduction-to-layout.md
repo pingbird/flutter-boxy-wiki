@@ -23,7 +23,7 @@ Layout in Flutter happens in a few steps:
 3. Position children
 4. Give self a size
 
-This is called the [RenderBox](https://api.flutter.dev/flutter/rendering/RenderBox-class.html) protocol, and is why animations in Flutter out-perform native Android and iOS.
+This is called the [RenderBox](https://api.flutter.dev/flutter/rendering/RenderBox-class.html) protocol, it's simplicity enables animations in Flutter to out-perform native Android and iOS. The catch is that developers have to put in extra effort to constrain widgets and avoid those pesky unbounded / infinite size errors.
 
 ### Interactive Example
 
@@ -33,9 +33,11 @@ Here's a DartPad that you can play around with:
 DartPad - [square-opacity.dart](https://gist.github.com/PixelToast/0d12f9092860c0793e57eb3b9cad2926)
 {% endembed %}
 
-It takes a child (hello world text) and sizes itself to be a square, it also animates opacity to show how [Layer](https://api.flutter.dev/flutter/rendering/Layer-class.html)s work.
+![](.gitbook/assets/image.png)
 
-The actual layout algorithm itself is simple, the hard part is just the boilerplate:
+It takes a child (Hello, World!) and ensures the height equals the width, the custom RenderObject also animates opacity to show how [Layer](https://api.flutter.dev/flutter/rendering/Layer-class.html)s work.
+
+The actual layout algorithm itself is quite simple, the annoying part is just the amount of boilerplate:
 
 1. Subclass [LeafRenderObjectWidget](https://api.flutter.dev/flutter/widgets/LeafRenderObjectWidget-class.html), [SingleChildRenderObjectWidget](https://api.flutter.dev/flutter/widgets/SingleChildRenderObjectWidget-class.html), or [MultiChildRenderObjectWidget](https://api.flutter.dev/flutter/widgets/MultiChildRenderObjectWidget-class.html)
 2. Implement [createRenderObject](https://api.flutter.dev/flutter/widgets/RenderObjectWidget/createRenderObject.html) / [updateRenderObject](https://api.flutter.dev/flutter/widgets/RenderObjectWidget/updateRenderObject.html) to pass variables to your RenderObject
