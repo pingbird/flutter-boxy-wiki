@@ -18,23 +18,45 @@ Size layout(BoxConstraints constraints) {
 ```
 {% endcode %}
 
-This is called the [RenderBox](https://api.flutter.dev/flutter/rendering/RenderBox-class.html) protocol, it's simplicity is what enables animations in Flutter to outperform native Android and iOS.
+This is called the [RenderBox](https://api.flutter.dev/flutter/rendering/RenderBox-class.html) protocol, it's simplicity is what enables animations in Flutter to outperform native Android, iOS, and web.
 
 The downside of being simple is that developers have to put in a little extra effort to constrain widgets and avoid those pesky flex overflow, unbounded constraints, and infinite size errors.
 
 The Flutter team made a great article on the design philosophy and performance implications of the RenderObject model: [https://docs.flutter.dev/resources/inside-flutter](https://docs.flutter.dev/resources/inside-flutter)
 
+### Useful terminology
+
+One notable quirk is that children are forced to follow the constraints given by their parent, which can be unintuitive sometimes:
+
+```dart
+SizedBox(
+  width: 100,
+  child: SizedBox(
+    width: 200,
+    child: Text('Is my width 100 or 200?'),
+  ),
+)
+```
+
+Do you think the width of this text is 100 or 200 pixels wide? If you chose 100, you are correct.
+
+The implementation of [RenderConstrainedBox](https://api.flutter.dev/flutter/rendering/RenderConstrainedBox-class.html) reveals why:
+
+```dart
+child!.layout(_additionalConstraints.enforce(constraints), parentUsesSize: true);
+```
+
 ### The many trees
 
-Before touching RenderObjects, we first need to understand the relationship between the Widget, Element, and Render trees.
+Before creating our own [RenderObject](https://api.flutter.dev/flutter/rendering/RenderObject-class.html), we first need to understand the relationship between the Widget, Element, and Render trees.
 
 ![](.gitbook/assets/trees.png)
 
-If you have some experience in Flutter you are probably familiar with how [State](https://api.flutter.dev/flutter/widgets/State-class.html) works, it's persistent and has lifecycle hooks that tell you when to initialize, build, and dispose.
+You are probably familiar with how [State](https://api.flutter.dev/flutter/widgets/State-class.html) works, it's a persistent instance that has methods you can override to know when to initialize, build, and dispose.
 
-State is just a fancy delegate for [ComponentElement](https://api.flutter.dev/flutter/widgets/ComponentElement-class.html) so that Flutter doesn't have to expose its ugly internals to widget code, other than that Element and State are essentially the same thing!
+State is actually just a fancy delegate for [ComponentElement](https://api.flutter.dev/flutter/widgets/ComponentElement-class.html) so that Flutter doesn't have to expose its ugly internals, other than that Element and State are essentially the same thing!
 
-[Elements](https://api.flutter.dev/flutter/widgets/Element-class.html) are also our [BuildContext](https://api.flutter.dev/flutter/widgets/BuildContext-class.html), an interface that hides ugly internals.
+Elements are also our [BuildContext](https://api.flutter.dev/flutter/widgets/BuildContext-class.html), the interface also exists to hide ugly internals.
 
 The Element tree is formed by recursively calling [Widget.createElement](https://api.flutter.dev/flutter/widgets/Widget/createElement.html), Flutter does the dirty work of reactively mounting, building, reparenting, and unmounting them for you.
 
