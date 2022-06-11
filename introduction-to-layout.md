@@ -60,7 +60,7 @@ SizedBox(
 )
 ```
 
-#### Unconstrained constraints example
+#### Unconstrained height example
 
 The most common way things become unconstrained is if they are in some kind of list, like a [ListView](https://api.flutter.dev/flutter/widgets/ListView-class.html) or [Column](https://api.flutter.dev/flutter/widgets/Column-class.html):
 
