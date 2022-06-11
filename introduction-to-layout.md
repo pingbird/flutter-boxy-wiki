@@ -12,19 +12,25 @@ Before touching layout, we first need to understand the relationship between the
 
 If you have some experience in Flutter you are probably familiar with how State works, it's persistent and has lifecycle hooks that tell you when to initialize, build, and dispose.
 
-State is just a fancy delegate for ComponentElement so that Flutter doesn't have to expose its ugly internals to widget code, other than that Element and State are essentially the same thing!
+State is just a fancy delegate for [ComponentElement](https://api.flutter.dev/flutter/widgets/ComponentElement-class.html) so that Flutter doesn't have to expose its ugly internals to widget code, other than that Element and State are essentially the same thing!
+
+The Element tree is formed by recursively calling [Widget.createElement](https://api.flutter.dev/flutter/widgets/Widget/createElement.html), Flutter does the dirty work of reactively mounting, building, reparenting, and unmounting them for you.
+
+When [RenderObjectElement](https://api.flutter.dev/flutter/widgets/RenderObjectElement-class.html)s are mounted they call [RenderObjectWidget.createRenderObject](https://api.flutter.dev/flutter/widgets/RenderObjectWidget/createRenderObject.html) to create a [RenderObject](https://api.flutter.dev/flutter/rendering/RenderObject-class.html).
+
+There is a different [Element](https://api.flutter.dev/flutter/widgets/Element-class.html) type depending on how children are structured, for example [ColoredBox](https://api.flutter.dev/flutter/widgets/ColoredBox-class.html) is a [SingleChildRenderObjectWidget](https://api.flutter.dev/flutter/widgets/SingleChildRenderObjectWidget-class.html) that creates a [SingleChildRenderObjectElement](https://api.flutter.dev/flutter/widgets/SingleChildRenderObjectElement-class.html), and [Row](https://api.flutter.dev/flutter/widgets/Row-class.html) is a [MultiChildRenderObjectWidget](https://api.flutter.dev/flutter/widgets/MultiChildRenderObjectWidget-class.html) that creates a [MultiChildRenderObjectElement](https://api.flutter.dev/flutter/widgets/MultiChildRenderObjectElement-class.html).
 
 {% hint style="info" %}
-There technically is no "widget tree" since widgets are more of a user-defined data structure that does not share a root node. The term is often conflated with the element tree, since elements form a global tree and provide context.
+There is technically no such thing as a "widget tree", widgets are more like user-defined data structures that do not share a root node. The term is often conflated with the element tree, since elements form a global tree and provide context.
 {% endhint %}
 
-### Layout
+### Constraints go down, Sizes go up
 
 You can think of layout in Flutter as a bunch of functions that take in BoxConstraints and return a Size:
 
 {% code title="(oversimplification)" %}
 ```dart
-layout(BoxConstraints constraints) {
+Size layout(BoxConstraints constraints) {
   final childSize = child.layout(BoxConstraints()));
   child.position(Offset.zero);
   return childSize;
@@ -34,9 +40,9 @@ layout(BoxConstraints constraints) {
 
 This is called the [RenderBox](https://api.flutter.dev/flutter/rendering/RenderBox-class.html) protocol, it's simplicity is what enables animations in Flutter to outperform native Android and iOS.
 
-The downside of this simplicity, however, is that developers have to put in a little extra effort to constrain widgets and avoid those pesky flex overflow, unbounded constraints, and infinite size errors. The Flutter team made a great article on the design philosophy and performance implications of the RenderObject model: [https://docs.flutter.dev/resources/inside-flutter](https://docs.flutter.dev/resources/inside-flutter)
+The downside of being simple is that developers have to put in a little extra effort to constrain widgets and avoid those pesky flex overflow, unbounded constraints, and infinite size errors.
 
-
+The Flutter team made a great article on the design philosophy and performance implications of the RenderObject model: [https://docs.flutter.dev/resources/inside-flutter](https://docs.flutter.dev/resources/inside-flutter)
 
 ### Interactive Example
 
@@ -62,7 +68,7 @@ The actual layout algorithm itself is quite simple, the annoying part is just th
 
 The original goal of Boxy was to boil this down into a simple, intuitive delegate class, sort of like a [CustomPainter](https://api.flutter.dev/flutter/rendering/CustomPainter-class.html) on steroids.
 
-Check out the introduction to CustomBoxy next:
+Check out the introduction to [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) next:
 
 {% content-ref url="customboxy/introduction-to-customboxy.md" %}
 [introduction-to-customboxy.md](customboxy/introduction-to-customboxy.md)
