@@ -62,7 +62,7 @@ SizedBox(
 
 #### Unconstrained height example
 
-The most common way things become unconstrained is if they are in some kind of list, like a [ListView](https://api.flutter.dev/flutter/widgets/ListView-class.html) or [Column](https://api.flutter.dev/flutter/widgets/Column-class.html):
+The most common way constraints become unconstrained is if the widget is in some kind of list, like a [ListView](https://api.flutter.dev/flutter/widgets/ListView-class.html) or [Column](https://api.flutter.dev/flutter/widgets/Column-class.html):
 
 ```dart
 ListView(
@@ -124,9 +124,9 @@ Before creating our own [RenderObject](https://api.flutter.dev/flutter/rendering
 
 ![](.gitbook/assets/trees.png)
 
-You are probably familiar with how [State](https://api.flutter.dev/flutter/widgets/State-class.html) works, it's a persistent instance that has methods you can override to know when to initialize, build, and dispose.
+You are probably familiar with how [State](https://api.flutter.dev/flutter/widgets/State-class.html) works, it's a persistent instance with methods you can override to know when to initialize, build, and dispose.
 
-State is actually just a fancy delegate for [ComponentElement](https://api.flutter.dev/flutter/widgets/ComponentElement-class.html) so that Flutter doesn't have to expose its ugly internals, other than that Element and State are essentially the same thing!
+State is actually just a fancy delegate for [ComponentElement](https://api.flutter.dev/flutter/widgets/ComponentElement-class.html) to hide it's ugly internals, other than that [Element](https://api.flutter.dev/flutter/widgets/Element-class.html) and [State](https://api.flutter.dev/flutter/widgets/State-class.html) are essentially the same thing!
 
 Elements are also our [BuildContext](https://api.flutter.dev/flutter/widgets/BuildContext-class.html), the interface also exists to hide ugly internals.
 
