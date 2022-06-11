@@ -2,9 +2,7 @@
 
 In the interactive example of the previous section we showed a custom [RenderObject](https://api.flutter.dev/flutter/rendering/RenderObject-class.html) with a single child, let's see how [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) can cut down all of the boilerplate.
 
-The end goal of this example is to take an arbitrarily sized widget, and size itself so that it's width and height is equal. Ideally the child is also centered in the resulting square.
-
-### Bare minimum example
+#### Bare minimum example
 
 To start, create a [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) widget and pass it a subclass of [BoxyDelegate](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate-class.html):
 
@@ -32,9 +30,9 @@ class SquareBoxyDelegate extends BoxyDelegate {}
 
 ![Bare minimum example](<../.gitbook/assets/image (1).png>)
 
-[CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) accepts a list of children, it's default behavior is similar to a [Stack](https://api.flutter.dev/flutter/widgets/Stack-class.html), passing through the constraints to each child and sizing itself to the biggest one.
+By default, [BoxyDelegate](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate-class.html) will lay out its children in a similar manner to [Stack](https://api.flutter.dev/flutter/widgets/Stack-class.html), passing through the constraints to each child and sizing itself to the biggest one.
 
-### Custom layout
+#### Custom square layout
 
 To actually make the widget square, we need to create a custom layout by overriding [BoxyDelegate.layout](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate/layout.html):
 
@@ -88,5 +86,3 @@ class SquareBoxyDelegate extends BoxyDelegate {
 ```
 
 ![Custom square layout](../.gitbook/assets/image.png)
-
-There was a little math involved to center the child, but that was pretty easy!

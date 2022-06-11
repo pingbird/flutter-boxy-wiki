@@ -1,3 +1,2 @@
-# Example: Evenly Sized Row
+# Example: Multiple Children
 
-Often&#x20;

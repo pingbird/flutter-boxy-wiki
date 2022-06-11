@@ -8,7 +8,7 @@ Most of the widgets you use in Flutter are actually pretty simple and elegant un
 
 You can think of layout in Flutter as a bunch of functions that take in BoxConstraints and return a Size:
 
-{% code title="(oversimplification)" %}
+{% code title="(simplification)" %}
 ```dart
 Size layout(BoxConstraints constraints) {
   final childSize = child.layout(BoxConstraints()));
@@ -24,7 +24,30 @@ The downside of being simple is that developers have to put in a little extra ef
 
 The Flutter team made a great article on the design philosophy and performance implications of the RenderObject model: [https://docs.flutter.dev/resources/inside-flutter](https://docs.flutter.dev/resources/inside-flutter)
 
-### Useful terminology
+### Constrain all the things
+
+There is a little terminology that can be useful for dealing with constraints or reading error messages:
+
+BoxConstraints define a minimum and maximum length for each axis, by default BoxConstraints is **unconstrained** meaning the minimum width / height is 0, and the maximum is infinity.
+
+An axis is said to be **tight** if the minimum and maximum is the same, e.g. `BoxConstraints(minWidth: 10.0, maxWidth: 10.0)` has a tight width. The child will not be able to size itself on that axis.
+
+An axis is said to be **loose** if the minimum is 0. The child will be able to choose its size on that axis assuming the maximum is not also 0.
+
+An axis is said to be **unbounded** if the maximum is infinity. The child will have to determine its own size on that axis, which can cause issues if the child wants to fill its available space.
+
+#### Tight constraints (SizedBox)
+
+Using SizedBox is an example of providing tight constraints to a child:
+
+```dart
+SizedBox(
+  width: 100,
+  child: Text('My width is 100, no more, no less.'),
+)
+```
+
+#### Quirks and Features 🚗
 
 One notable quirk is that children are forced to follow the constraints given by their parent, which can be unintuitive sometimes:
 
