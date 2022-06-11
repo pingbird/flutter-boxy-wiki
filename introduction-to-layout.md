@@ -30,20 +30,45 @@ There is a little terminology that can be useful for dealing with constraints or
 
 BoxConstraints define a minimum and maximum length for each axis, by default BoxConstraints is **unconstrained** meaning the minimum width / height is 0, and the maximum is infinity.
 
-An axis is said to be **tight** if the minimum and maximum is the same, e.g. `BoxConstraints(minWidth: 10.0, maxWidth: 10.0)` has a tight width. The child will not be able to size itself on that axis.
+* An axis is said to be <mark style="background-color:purple;">**tight**</mark> if the minimum and maximum is the same, e.g. `BoxConstraints(minWidth: 10.0, maxWidth: 10.0)` has a tight width. The child will not be able to size itself on that axis.
+* An axis is said to be <mark style="background-color:purple;">**loose**</mark> if the minimum is 0. The child will be able to choose its size on that axis assuming the maximum is not also 0.
+* An axis is said to be <mark style="background-color:purple;">**unbounded**</mark> if the maximum is infinity. The child will have to determine its own size on that axis, which can cause issues if the child wants to fill its available space.
+* An axis is said to be <mark style="background-color:purple;">**unconstrained**</mark> if the the minimum is 0 and the maximum is infinity. Unbounded constraints are usually also unconstrained, the child can choose any size it wants.
 
-An axis is said to be **loose** if the minimum is 0. The child will be able to choose its size on that axis assuming the maximum is not also 0.
+#### Tight constraints example
 
-An axis is said to be **unbounded** if the maximum is infinity. The child will have to determine its own size on that axis, which can cause issues if the child wants to fill its available space.
-
-#### Tight constraints (SizedBox)
-
-Using SizedBox is an example of providing tight constraints to a child:
+SizedBox is an example of a way to provide tight constraints to a child:
 
 ```dart
 SizedBox(
   width: 100,
   child: Text('My width is 100, no more, no less.'),
+)
+```
+
+#### Loose constraints example
+
+Center is a common way of loosening constraints:
+
+```dart
+SizedBox(
+  width: 200,
+  height: 200,
+  child: Center(
+    child: Text('I can be any size I want, as long as its < 200.'),
+  ),
+)
+```
+
+#### Unconstrained constraints example
+
+The most common way things become unconstrained is if they are in some kind of list:
+
+```dart
+ListView(
+  children: [
+    Text('I have a constrained width, but an unconstrained height.'),
+  ],
 )
 ```
 
