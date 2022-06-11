@@ -26,9 +26,9 @@ The Flutter team made a great article on the design philosophy and performance i
 
 ### Constrain all the things
 
-There is a little terminology that can be useful for dealing with constraints or reading error messages:
+[BoxConstraints](https://api.flutter.dev/flutter/rendering/BoxConstraints-class.html) define a minimum and maximum length for each axis, by default it has a minimum width / height of 0, and maximum of infinity.
 
-[BoxConstraints](https://api.flutter.dev/flutter/rendering/BoxConstraints-class.html) define a minimum and maximum length for each axis, by default BoxConstraints is **unconstrained** meaning the minimum width / height is 0, and the maximum is infinity.
+There is a little terminology that can be useful for dealing with constraints or reading error messages:
 
 * An axis is said to be <mark style="background-color:purple;">**tight**</mark> if the minimum and maximum is the same, e.g. `BoxConstraints(minWidth: 10.0, maxWidth: 10.0)` has a tight width. The child will not be able to size itself on that axis.
 * An axis is said to be <mark style="background-color:purple;">**loose**</mark> if the minimum is 0. The child will be able to choose its size on that axis assuming the maximum is not also 0.
