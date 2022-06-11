@@ -4,26 +4,6 @@ When Flutter was created, it set out to provide a render architecture that was s
 
 Most of the widgets you use in Flutter are actually pretty simple and elegant under the hood, there is rarely any magic, so try not to be intimidated by it!
 
-### The many trees
-
-Before touching layout, we first need to understand the relationship between the Widget, Element, and Render trees.
-
-![](.gitbook/assets/trees.png)
-
-If you have some experience in Flutter you are probably familiar with how State works, it's persistent and has lifecycle hooks that tell you when to initialize, build, and dispose.
-
-State is just a fancy delegate for [ComponentElement](https://api.flutter.dev/flutter/widgets/ComponentElement-class.html) so that Flutter doesn't have to expose its ugly internals to widget code, other than that Element and State are essentially the same thing!
-
-The Element tree is formed by recursively calling [Widget.createElement](https://api.flutter.dev/flutter/widgets/Widget/createElement.html), Flutter does the dirty work of reactively mounting, building, reparenting, and unmounting them for you.
-
-When [RenderObjectElement](https://api.flutter.dev/flutter/widgets/RenderObjectElement-class.html)s are mounted they call [RenderObjectWidget.createRenderObject](https://api.flutter.dev/flutter/widgets/RenderObjectWidget/createRenderObject.html) to create a [RenderObject](https://api.flutter.dev/flutter/rendering/RenderObject-class.html).
-
-There is a different [Element](https://api.flutter.dev/flutter/widgets/Element-class.html) type depending on how children are structured, for example [ColoredBox](https://api.flutter.dev/flutter/widgets/ColoredBox-class.html) is a [SingleChildRenderObjectWidget](https://api.flutter.dev/flutter/widgets/SingleChildRenderObjectWidget-class.html) that creates a [SingleChildRenderObjectElement](https://api.flutter.dev/flutter/widgets/SingleChildRenderObjectElement-class.html), and [Row](https://api.flutter.dev/flutter/widgets/Row-class.html) is a [MultiChildRenderObjectWidget](https://api.flutter.dev/flutter/widgets/MultiChildRenderObjectWidget-class.html) that creates a [MultiChildRenderObjectElement](https://api.flutter.dev/flutter/widgets/MultiChildRenderObjectElement-class.html).
-
-{% hint style="info" %}
-There is technically no such thing as a "widget tree", widgets are more like user-defined data structures that do not share a root node. The term is often conflated with the element tree, since elements form a global tree and provide context.
-{% endhint %}
-
 ### Constraints go down, Sizes go up
 
 You can think of layout in Flutter as a bunch of functions that take in BoxConstraints and return a Size:
@@ -43,6 +23,28 @@ This is called the [RenderBox](https://api.flutter.dev/flutter/rendering/RenderB
 The downside of being simple is that developers have to put in a little extra effort to constrain widgets and avoid those pesky flex overflow, unbounded constraints, and infinite size errors.
 
 The Flutter team made a great article on the design philosophy and performance implications of the RenderObject model: [https://docs.flutter.dev/resources/inside-flutter](https://docs.flutter.dev/resources/inside-flutter)
+
+### The many trees
+
+Before touching RenderObjects, we first need to understand the relationship between the Widget, Element, and Render trees.
+
+![](.gitbook/assets/trees.png)
+
+If you have some experience in Flutter you are probably familiar with how [State](https://api.flutter.dev/flutter/widgets/State-class.html) works, it's persistent and has lifecycle hooks that tell you when to initialize, build, and dispose.
+
+State is just a fancy delegate for [ComponentElement](https://api.flutter.dev/flutter/widgets/ComponentElement-class.html) so that Flutter doesn't have to expose its ugly internals to widget code, other than that Element and State are essentially the same thing!
+
+[Elements](https://api.flutter.dev/flutter/widgets/Element-class.html) are also our [BuildContext](https://api.flutter.dev/flutter/widgets/BuildContext-class.html), an interface that hides ugly internals.
+
+The Element tree is formed by recursively calling [Widget.createElement](https://api.flutter.dev/flutter/widgets/Widget/createElement.html), Flutter does the dirty work of reactively mounting, building, reparenting, and unmounting them for you.
+
+When [RenderObjectElement](https://api.flutter.dev/flutter/widgets/RenderObjectElement-class.html)s are mounted they call [RenderObjectWidget.createRenderObject](https://api.flutter.dev/flutter/widgets/RenderObjectWidget/createRenderObject.html) to create a [RenderObject](https://api.flutter.dev/flutter/rendering/RenderObject-class.html).
+
+There is a different [Element](https://api.flutter.dev/flutter/widgets/Element-class.html) type depending on how children are structured, for example [ColoredBox](https://api.flutter.dev/flutter/widgets/ColoredBox-class.html) is a [SingleChildRenderObjectWidget](https://api.flutter.dev/flutter/widgets/SingleChildRenderObjectWidget-class.html) that creates a [SingleChildRenderObjectElement](https://api.flutter.dev/flutter/widgets/SingleChildRenderObjectElement-class.html), and [Row](https://api.flutter.dev/flutter/widgets/Row-class.html) is a [MultiChildRenderObjectWidget](https://api.flutter.dev/flutter/widgets/MultiChildRenderObjectWidget-class.html) that creates a [MultiChildRenderObjectElement](https://api.flutter.dev/flutter/widgets/MultiChildRenderObjectElement-class.html).
+
+{% hint style="info" %}
+There is technically no such thing as a "widget tree", widgets are more like user-defined data structures that do not share a root node. The term is often conflated with the element tree, since elements form a global tree and provide context.
+{% endhint %}
 
 ### Interactive Example
 
