@@ -60,7 +60,7 @@ SizedBox(
 
 #### Unconstrained height example
 
-The most common way constraints become unconstrained is if the widget is in some kind of list, like a [ListView](https://api.flutter.dev/flutter/widgets/ListView-class.html) or [Column](https://api.flutter.dev/flutter/widgets/Column-class.html):
+The most common way widgets become unconstrained is inside a list, like a [ListView](https://api.flutter.dev/flutter/widgets/ListView-class.html) or [Column](https://api.flutter.dev/flutter/widgets/Column-class.html):
 
 ```dart
 ListView(
