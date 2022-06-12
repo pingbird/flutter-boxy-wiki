@@ -1,5 +1,11 @@
 # Example: Product Tile
 
+This is an interesting layout I stumbled upon when searching StackOverflow, it contains Title, Seller, and Info widgets arranged so that the Seller is positioned above the space between Title and Info.
+
+Normally for something like this you would use Stack, but that unfortunately doesn't work if each widget has a dynamic size and is interactable.
+
+### Complete Example
+
 ![](../.gitbook/assets/ftest\_GCKLEFXEnu.png)
 
 ```dart
@@ -141,10 +147,14 @@ class ProductTileDelegate extends BoxyDelegate {
     );
   }
 
+  // Any BoxyDelegate with parameters should always implement shouldRelaout,
+  // otherwise it won't update when its properties do.
   @override
   bool shouldRelayout(ProductTileDelegate oldDelegate) =>
       style != oldDelegate.style;
 }
 ```
 
-![](../.gitbook/assets/ftest\_UTDKLOvcAU.png)
+With some images and text, we get a finished product tile that is fully adaptive:
+
+![default state](../.gitbook/assets/ftest\_UTDKLOvcAU.png) ![expanded title](../.gitbook/assets/ftest\_UHm3QStdY7.png) ![expanded info](../.gitbook/assets/ftest\_MyQB0wRzDZ.png) ![expanded seller](<../.gitbook/assets/ftest\_7Je17IzRnr (1).png>) ![constrained width](../.gitbook/assets/ftest\_X0YPu1QG3P.png)

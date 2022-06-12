@@ -56,7 +56,7 @@ class MyWidget extends StatelessWidget {
 }
 ```
 
-### Custom Layout
+### Complete Example
 
 To make this row prettier we want each child to be the same width, fortunately [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) allows us to do that:
 

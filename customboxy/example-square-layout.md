@@ -34,7 +34,7 @@ class SquareBoxyDelegate extends BoxyDelegate {}
 
 [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) accepts a list of children, it's default behavior is similar to a [Stack](https://api.flutter.dev/flutter/widgets/Stack-class.html), passing through the constraints to each child and sizing itself to the biggest one.
 
-### Custom layout
+### Complete Example
 
 To actually make the widget square, we need to create a custom layout by overriding [BoxyDelegate.layout](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate/layout.html):
 
