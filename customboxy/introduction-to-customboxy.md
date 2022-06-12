@@ -12,7 +12,7 @@ This is overkill in most cases, before diving in you may want to check if some c
 
 To start, create a [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) widget and pass it a subclass of [BoxyDelegate](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate-class.html):
 
-![](<../.gitbook/assets/image (1) (1).png>)
+![](<../.gitbook/assets/image (1) (1) (1).png>)
 
 ```dart
 class MyWidget extends StatelessWidget {
@@ -171,7 +171,7 @@ The [paint](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDeleg
 
 We can customize the way children are painted by overriding [paintChildren](https://api.flutter.dev/flutter/rendering/FlowDelegate/paintChildren.html), this is useful if we want to change their paint order:
 
-![Without paintChildren](../.gitbook/assets/ftest\_fcR5Z2lEZD.png) ![With paintChildren](<../.gitbook/assets/image (1).png>)
+![Without paintChildren](../.gitbook/assets/ftest\_fcR5Z2lEZD.png) ![With paintChildren](<../.gitbook/assets/image (1) (1).png>)
 
 ```dart
 class MyWidget extends StatelessWidget {
@@ -206,7 +206,7 @@ class MyBoxyDelegate extends BoxyDelegate {
 }
 ```
 
-Note that the [canvas](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/canvas.html) is still available, so we can use [paintChildren](https://api.flutter.dev/flutter/rendering/FlowDelegate/paintChildren.html) to paint between children:
+Note that the [canvas](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/canvas.html) is still available, so we can use [paintChildren](https://api.flutter.dev/flutter/rendering/FlowDelegate/paintChildren.html) to paint things between children:
 
 ![](<../.gitbook/assets/image (3).png>)
 
@@ -230,3 +230,45 @@ class MyBoxyDelegate extends BoxyDelegate {
 }
 ```
 {% endcode %}
+
+### Layers
+
+Another way we can customize the way children are painted is with [layers](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/layers.html), this is a fancy wrapper around the low level compositing [Layers](https://api.flutter.dev/flutter/rendering/Layer-class.html) used for widgets like [Opacity](https://api.flutter.dev/flutter/widgets/Opacity-class.html) and [BackdropFilter](https://api.flutter.dev/flutter/widgets/BackdropFilter-class.html).
+
+![](<../.gitbook/assets/image (1).png>)
+
+```dart
+class MyWidget extends StatelessWidget {
+  const MyWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomBoxy(
+      delegate: MyBoxyDelegate(),
+      children: [
+        Container(
+          color: Colors.blue,
+          width: 48,
+          height: 48,
+        ),
+      ],
+    );
+  }
+}
+
+class MyBoxyDelegate extends BoxyDelegate {
+  @override
+  void paintChildren() {
+    // Make the square blurry
+    layers.imageFilter(
+      imageFilter: ImageFilter.blur(
+        sigmaX: 2,
+        sigmaY: 2,
+        tileMode: TileMode.decal,
+      ),
+      paint: children.single.paint,
+    );
+  }
+}
+```
+
