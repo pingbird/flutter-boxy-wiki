@@ -47,12 +47,14 @@ class MyBoxyDelegate extends BoxyDelegate {
 }
 ```
 
-This boxy would have no children and would choose the smallest size that its constraints allow, just like an empty `SizedBox()`.
+This example would choose the smallest size that its constraints allow, like an empty `SizedBox()`.
 
 [BoxyDelegate](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate-class.html) includes several getters that are useful for layout, including:
 
 * [constraints](https://pub.dev/documentation/boxy/latest/render\_boxy/BoxBoxyDelegateMixin/constraints.html), the [BoxConstraints](https://api.flutter.dev/flutter/rendering/BoxConstraints-class.html) provided by the parent
 * [children](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/children.html), a list of [BoxyChild](https://pub.dev/documentation/boxy/latest/boxy/BoxyChild-class.html) instances which let you interact with things passed to [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html)
+* [getChild](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/getChild.html), a method that can get a child by id using [BoxyId](https://pub.dev/documentation/boxy/latest/boxy/BoxyId-class.html)
+* [hasChild](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/hasChild.html), a method that returns true if there is a child with a given id
 * [layoutData](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/layoutData.html), a variable you can use to hold additional data created during layout
 * [render](https://pub.dev/documentation/boxy/latest/render\_boxy/BoxBoxyDelegateMixin/render.html), a raw reference to the [RenderBoxy](https://pub.dev/documentation/boxy/latest/render\_boxy/RenderBoxy-class.html) of [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html)
 * [buildContext](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/buildContext.html), the [BuildContext](https://api.flutter.dev/flutter/widgets/BuildContext-class.html) of the [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html).
@@ -86,8 +88,79 @@ Size layout() {
 * [layout](https://pub.dev/documentation/boxy/latest/boxy/BoxyChild/layout.html), a method that lays out the child given some constraints
 * [layoutFit](https://pub.dev/documentation/boxy/latest/boxy/BoxyChild/layoutFit.html), a method that lays out and transforms the child according to a [Rect](https://api.dart.dev/stable/2.17.3/dart-ui/Rect-class.html) and [BoxFit](https://api.flutter.dev/flutter/painting/BoxFit.html), just like a [FittedBox](https://api.flutter.dev/flutter/widgets/FittedBox-class.html)
 * [layoutRect](https://pub.dev/documentation/boxy/latest/boxy/BoxyChild/layoutRect.html), a method that lays out and positions the child so that it fits a [Rect](https://api.dart.dev/stable/2.17.3/dart-ui/Rect-class.html) with an optional alignment property that behaves like an [Align](https://api.flutter.dev/flutter/widgets/Align-class.html)
-* [size](https://pub.dev/documentation/boxy/latest/boxy/BoxyChild/size.html), the size of the child after the child is laid out
+* [position](https://pub.dev/documentation/boxy/latest/boxy/BaseBoxyChild/position.html), a method that sets the offset of the child
+* [setTransform](https://pub.dev/documentation/boxy/latest/boxy/BaseBoxyChild/setTransform.html), a more advanced version of position that takes a [Matrix4](https://pub.dev/documentation/vector\_math/2.1.2/vector\_math\_64/Matrix4-class.html) transform
+* [size](https://pub.dev/documentation/boxy/latest/boxy/BoxyChild/size.html), the size of the child after it's laid out
 * [context](https://pub.dev/documentation/boxy/latest/inflating\_element/InflatedChildHandle/context.html), the [Element](https://api.flutter.dev/flutter/widgets/Element-class.html) (aka [BuildContext](https://api.flutter.dev/flutter/widgets/BuildContext-class.html)) of the child
 * [id](https://pub.dev/documentation/boxy/latest/inflating\_element/InflatedChildHandle/id.html), the id of the child which is provided by either [BoxyId](https://pub.dev/documentation/boxy/latest/boxy/BoxyId-class.html) or an incrementing integer
 
-&#x20;
+### Identifying children
+
+In some cases you might want to identify children by name rather than index, [BoxyId](https://pub.dev/documentation/boxy/latest/boxy/BoxyId-class.html) is your friend:
+
+![](../.gitbook/assets/ftest\_XBEjnnpsdS.png)
+
+```dart
+class MyWidget extends StatelessWidget {
+  const MyWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomBoxy(
+      delegate: MyBoxyDelegate(),
+      children: const [
+        // BoxyId allows children to be accessed by name.
+        BoxyId(
+          // This `#hello` is called a Symbol, they are like strings but
+          // slightly more performant for naming things.
+          id: #hello,
+          child: Text('Hello,'),
+        ),
+        BoxyId(
+          id: #world,
+          child: Text('World!'),
+        ),
+      ],
+    );
+  }
+}
+
+class MyBoxyDelegate extends BoxyDelegate {
+  @override
+  Size layout() {
+    final BoxyChild hello = getChild(#hello);
+    final BoxyChild world = getChild(#world);
+
+    final Size helloSize = hello.layout(constraints);
+    final Size worldSize = world.layout(constraints);
+
+    world.position(Offset(0, worldSize.height));
+
+    return Size(
+      max(helloSize.width, worldSize.height),
+      helloSize.height + worldSize.height,
+    );
+  }
+}
+```
+
+### Painting
+
+By overriding [paint](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/paint.html) or [paintForeground](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/paintForeground.html) you can get functionality similar to [CustomPaint](https://api.flutter.dev/flutter/widgets/CustomPaint-class.html):
+
+![](../.gitbook/assets/ftest\_frMkXTvID9.png)
+
+```dart
+class MyBoxyDelegate extends BoxyDelegate {
+  @override
+  Size layout() => const Size(32, 32);
+
+  @override
+  void paint() {
+    canvas.drawRect(
+      Offset.zero & render.size,
+      Paint()..color = Colors.blue,
+    );
+  }
+}
+```
