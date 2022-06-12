@@ -1,6 +1,10 @@
 # Example: Evenly Sized Row
 
+In this example we take a simple row of widgets and make each of them the same size. This one is a little more complicated because there are an arbitrary number of children.
+
 ### Original Layout
+
+If we throw three text widgets in a Row it looks a little ugly:
 
 ![](../.gitbook/assets/ftest\_4KetSQxXfe.png)
 
@@ -54,6 +58,8 @@ class MyWidget extends StatelessWidget {
 
 ### Custom Layout
 
+To make this row prettier we want each child to be the same width, fortunately [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) allows us to do that:
+
 ![](../.gitbook/assets/ftest\_2ETeGIqwH8.png)
 
 ```dart
@@ -77,7 +83,11 @@ class EvenSized extends StatelessWidget {
 class EvenSizedBoxy extends BoxyDelegate {
   @override
   Size layout() {
-    // Find the max intrinsic width
+    // Find the max intrinsic width of each child
+    //
+    // Intrinsics are a little scary but `getMaxIntrinsicWidth(double.infinity)`
+    // just calculates the width of the child as if its maximum height is
+    // infinite
     var childWidth = 0.0;
     for (final child in children) {
       childWidth = max(
@@ -86,19 +96,23 @@ class EvenSizedBoxy extends BoxyDelegate {
       );
     }
 
-    // Clamp the width so we don't overflow
+    // Clamp the width so children don't overflow
     childWidth = min(childWidth, constraints.maxWidth / children.length);
 
     // Find the max intrinsic height
+    //
+    // We calculate childHeight after childWidth because the height of text
+    // depends on its width (i.e. wrapping), `getMinIntrinsicHeight(childWidth)`
+    // calculates what the child's height would be if it's width is childWidth.
     var childHeight = 0.0;
     for (final child in children) {
       childHeight = max(
         childHeight,
-        child.render.getMinIntrinsicHeight(double.infinity),
+        child.render.getMinIntrinsicHeight(childWidth),
       );
     }
 
-    // Force each child to be the same size as the biggest
+    // Force each child to be the same size
     final childConstraints = BoxConstraints.tight(
       Size(childWidth, childHeight),
     );
@@ -116,5 +130,7 @@ class EvenSizedBoxy extends BoxyDelegate {
   }
 }
 ```
+
+Constraining the layout's width shows that the children are distributed evenly and don't overflow, the text has correct wrapping behavior as well:
 
 ![](../.gitbook/assets/ftest\_pqqiRVzZwz.png)
