@@ -4,36 +4,6 @@ In the interactive example of the previous section we showed a custom [RenderObj
 
 The end goal of this example is to take an arbitrarily sized widget, and size itself so that it's width and height is equal. Ideally the child is also centered in the resulting square.
 
-### Bare minimum example
-
-To start, create a [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) widget and pass it a subclass of [BoxyDelegate](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate-class.html):
-
-![](<../.gitbook/assets/image (1).png>)
-
-{% code title="" %}
-```dart
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomBoxy(
-        delegate: SquareBoxyDelegate(),
-        children: const [
-          Text('Hello, World!'),
-        ],
-      ),
-    );
-  }
-}
-
-class SquareBoxyDelegate extends BoxyDelegate {}
-```
-{% endcode %}
-
-[CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) accepts a list of children, it's default behavior is similar to a [Stack](https://api.flutter.dev/flutter/widgets/Stack-class.html), passing through the constraints to each child and sizing itself to the biggest one.
-
 ### Complete Example
 
 To actually make the widget square, we need to create a custom layout by overriding [BoxyDelegate.layout](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate/layout.html):
