@@ -1,12 +1,12 @@
 # Example: Square Layout
 
-In the interactive example of the previous section we showed a custom [RenderObject](https://api.flutter.dev/flutter/rendering/RenderObject-class.html) with a single child, let's see how [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) can cut down all of the boilerplate.
+In the interactive example of [Introduction To Layout](https://docs.boxy.wiki/introduction-to-layout) we showed a custom [RenderObject](https://api.flutter.dev/flutter/rendering/RenderObject-class.html) with a single child, let's see how [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) can cut down all of the boilerplate.
 
 The end goal of this example is to take an arbitrarily sized widget, and size itself so that it's width and height is equal. Ideally the child is also centered in the resulting square.
 
 ### Complete Example
 
-To actually make the widget square, we need to create a custom layout by overriding [BoxyDelegate.layout](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate/layout.html):
+To make the widget square, we need to create a [BoxyDelegate](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate-class.html) that overrides [layout](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate/layout.html):
 
 ![](../.gitbook/assets/image.png)
 
