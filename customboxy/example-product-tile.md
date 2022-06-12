@@ -1,5 +1,7 @@
 # Example: Product Tile
 
+![](../.gitbook/assets/ftest\_GCKLEFXEnu.png)
+
 ```dart
 class MyWidget extends StatelessWidget {
   const MyWidget({Key? key}) : super(key: key);
@@ -144,7 +146,5 @@ class ProductTileDelegate extends BoxyDelegate {
       style != oldDelegate.style;
 }
 ```
-
-![](../.gitbook/assets/ftest\_GCKLEFXEnu.png)
 
 ![](../.gitbook/assets/ftest\_UTDKLOvcAU.png)

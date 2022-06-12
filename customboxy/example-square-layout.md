@@ -8,6 +8,8 @@ The end goal of this example is to take an arbitrarily sized widget, and size it
 
 To start, create a [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) widget and pass it a subclass of [BoxyDelegate](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate-class.html):
 
+![](<../.gitbook/assets/image (1).png>)
+
 {% code title="" %}
 ```dart
 class MyHomePage extends StatelessWidget {
@@ -30,13 +32,13 @@ class SquareBoxyDelegate extends BoxyDelegate {}
 ```
 {% endcode %}
 
-![Bare minimum example](<../.gitbook/assets/image (1).png>)
-
 [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) accepts a list of children, it's default behavior is similar to a [Stack](https://api.flutter.dev/flutter/widgets/Stack-class.html), passing through the constraints to each child and sizing itself to the biggest one.
 
 ### Custom layout
 
 To actually make the widget square, we need to create a custom layout by overriding [BoxyDelegate.layout](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate/layout.html):
+
+![](../.gitbook/assets/image.png)
 
 ```dart
 class Square extends StatelessWidget {
@@ -86,7 +88,5 @@ class SquareBoxyDelegate extends BoxyDelegate {
   }
 }
 ```
-
-![Custom square layout](../.gitbook/assets/image.png)
 
 There was a little math involved to center the child, but that was pretty easy!
