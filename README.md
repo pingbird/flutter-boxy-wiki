@@ -12,8 +12,8 @@ Boxy is a Flutter package created to overcome the limitations of built-in layout
 
 The package is ready for production use, it has excellent documentation, test coverage, and passes strict analysis.
 
-| [GitHub](https://github.com/PixelToast/flutter-boxy) | [API Docs](https://pub.dev/documentation/boxy/latest/) | [Pub](https://pub.dev/packages/boxy) | [Discord](https://discord.com/invite/N7Yshp4) |   |
-| ---------------------------------------------------- | ------------------------------------------------------ | ------------------------------------ | --------------------------------------------- | - |
+| [GitHub](https://github.com/PixelToast/flutter-boxy) | [API Docs](https://pub.dev/documentation/boxy/latest/) | [Pub](https://pub.dev/packages/boxy) | [Discord](https://discord.com/invite/N7Yshp4) |
+| ---------------------------------------------------- | ------------------------------------------------------ | ------------------------------------ | --------------------------------------------- |
 
 ### Features
 
