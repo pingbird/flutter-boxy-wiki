@@ -12,7 +12,7 @@ This is overkill in most cases, before diving in you may want to check if some c
 
 To start, create a [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) widget and pass it a subclass of [BoxyDelegate](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate-class.html):
 
-![](<../.gitbook/assets/image (1) (1) (1).png>)
+![](<../.gitbook/assets/image (1) (1) (1) (1).png>)
 
 ```dart
 class MyWidget extends StatelessWidget {
@@ -41,13 +41,13 @@ There are many methods you can override in [BoxyDelegate](https://pub.dev/docume
 To customize layout, override the [layout](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate/layout.html) method to return a size:
 
 ```dart
-class MyBoxyDelegate extends BoxyDelegate {
+class MyBoxyDelegate extends BoxyDelegate { 
   @override
+  // Choose the smallest size that our constraints allow, just like
+  // an empty SizedBox().
   Size layout() => constraints.smallest;
 }
 ```
-
-This example would choose the smallest size that its constraints allow, like an empty `SizedBox()`.
 
 [BoxyDelegate](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate-class.html) includes several getters that are useful for layout, including:
 
@@ -128,14 +128,18 @@ class MyWidget extends StatelessWidget {
 class MyBoxyDelegate extends BoxyDelegate {
   @override
   Size layout() {
+    // Grab the children by name.
     final BoxyChild hello = getChild(#hello);
     final BoxyChild world = getChild(#world);
 
+    // Lay them out and store their sizes.
     final Size helloSize = hello.layout(constraints);
     final Size worldSize = world.layout(constraints);
 
-    world.position(Offset(0, worldSize.height));
+    // Position the "World!" text below the "Hello,".
+    world.position(Offset(0, helloSize.height));
 
+    // Return the size of our little column.
     return Size(
       max(helloSize.width, worldSize.height),
       helloSize.height + worldSize.height,
@@ -219,9 +223,9 @@ The [paint](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDeleg
 
 ### Painting children
 
-We can customize the way children are painted by overriding [paintChildren](https://api.flutter.dev/flutter/rendering/FlowDelegate/paintChildren.html), this is useful if we want to change their paint order:
+We can customize the way children are painted by overriding [paintChildren](https://api.flutter.dev/flutter/rendering/FlowDelegate/paintChildren.html), this is useful if you want to change their paint order for example:
 
-![Without paintChildren](../.gitbook/assets/ftest\_fcR5Z2lEZD.png) ![With paintChildren](<../.gitbook/assets/image (1) (1).png>)
+![Without paintChildren](../.gitbook/assets/ftest\_fcR5Z2lEZD.png) ![With paintChildren](<../.gitbook/assets/image (1) (1) (1).png>)
 
 ```dart
 class MyWidget extends StatelessWidget {
@@ -285,7 +289,7 @@ class MyBoxyDelegate extends BoxyDelegate {
 
 Another way we can customize the way children are painted is with [layers](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/layers.html), this is a fancy wrapper around the low level compositing [Layers](https://api.flutter.dev/flutter/rendering/Layer-class.html) used for widgets like [Opacity](https://api.flutter.dev/flutter/widgets/Opacity-class.html) and [BackdropFilter](https://api.flutter.dev/flutter/widgets/BackdropFilter-class.html).
 
-![](<../.gitbook/assets/image (1).png>)
+![](<../.gitbook/assets/image (1) (1).png>)
 
 ```dart
 class MyWidget extends StatelessWidget {
@@ -317,6 +321,50 @@ class MyBoxyDelegate extends BoxyDelegate {
         tileMode: TileMode.decal,
       ),
       paint: children.single.paint,
+    );
+  }
+}
+```
+
+### Parent Data
+
+You can pass data to the delegate using the [data](https://pub.dev/documentation/boxy/latest/boxy/BoxyId/data.html) parameter of [BoxyId](https://pub.dev/documentation/boxy/latest/boxy/BoxyId-class.html).
+
+This is the same underlying mechanism that [Expanded](https://api.flutter.dev/flutter/widgets/Expanded-class.html) uses to tell the [Row](https://api.flutter.dev/flutter/widgets/Row-class.html) or [Column](https://api.flutter.dev/flutter/widgets/Column-class.html) how much space it should take up.
+
+![](../.gitbook/assets/image.png)
+
+```dart
+class MyWidget extends StatelessWidget {
+  const MyWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomBoxy(
+      delegate: MyBoxyDelegate(),
+      children: [
+        const Text('👻 I am hiding '),
+        BoxyId(
+          child: Container(
+            color: Colors.blue,
+            width: 50,
+            height: 50,
+          ),
+          // This gets passed to BoxyChild.parentData
+          data: 0.5,
+        ),
+      ],
+    );
+  }
+}
+
+class MyBoxyDelegate extends BoxyDelegate {
+  @override
+  void paintChildren() {
+    children[0].paint();
+    layers.opacity(
+      opacity: children[1].parentData,
+      paint: children[1].paint,
     );
   }
 }
