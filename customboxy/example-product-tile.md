@@ -2,7 +2,7 @@
 
 This is an interesting layout I stumbled upon when searching StackOverflow, it contains Title, Seller, and Info widgets arranged so that the Seller is positioned above the space between Title and Info.
 
-Normally for something like this you would use Stack, but that unfortunately doesn't work if each widget has a dynamic size and is interactable.
+Normally for something like this you would use Stack, but that unfortunately doesn't work if each widget is interactable and has a dynamic size.
 
 ### Complete Example
 

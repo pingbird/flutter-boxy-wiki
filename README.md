@@ -17,8 +17,8 @@ The package is ready for production use, it has excellent documentation, test co
 
 ### Features
 
-{% content-ref url="introduction-to-layout.md" %}
-[introduction-to-layout.md](introduction-to-layout.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 {% content-ref url="customboxy/introduction-to-customboxy.md" %}

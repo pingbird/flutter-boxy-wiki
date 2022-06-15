@@ -25,7 +25,7 @@ The [paint](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDeleg
 
 We can customize the way children are painted by overriding [paintChildren](https://api.flutter.dev/flutter/rendering/FlowDelegate/paintChildren.html), this is useful if you want to change their paint order for example:
 
-![Without paintChildren](../.gitbook/assets/ftest\_fcR5Z2lEZD.png) ![With paintChildren](<../.gitbook/assets/image (1) (1) (1).png>)
+![Without paintChildren](../.gitbook/assets/ftest\_fcR5Z2lEZD.png) ![With paintChildren](<../.gitbook/assets/image (1) (1) (1) (1).png>)
 
 ```dart
 class MyWidget extends StatelessWidget {
