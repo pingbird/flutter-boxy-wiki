@@ -15,14 +15,18 @@ The package is ready for production use, it has excellent documentation, test co
 | [🐙 GitHub](https://github.com/PixelToast/flutter-boxy) | [📖 API Docs](https://pub.dev/documentation/boxy/latest/) | [🐦 Pub](https://pub.dev/packages/boxy) | [🗪 Discord](https://discord.com/invite/N7Yshp4) |
 | ------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------- | ------------------------------------------------ |
 
-### Features
+### Content
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="renderobjects/introduction-to-layout.md" %}
+[introduction-to-layout.md](renderobjects/introduction-to-layout.md)
 {% endcontent-ref %}
 
 {% content-ref url="customboxy/introduction-to-customboxy.md" %}
 [introduction-to-customboxy.md](customboxy/introduction-to-customboxy.md)
+{% endcontent-ref %}
+
+{% content-ref url="slivers/slivercontainer.md" %}
+[slivercontainer.md](slivers/slivercontainer.md)
 {% endcontent-ref %}
 
 ### Getting Started
