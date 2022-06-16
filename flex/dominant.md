@@ -14,7 +14,7 @@ class MyWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Blue container match the height of the pink one below
+        // Blue container should match the height of the pink one below
         Container(
           color: Colors.blue,
           width: 25,
