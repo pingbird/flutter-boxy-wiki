@@ -1,6 +1,6 @@
 # SliverCard
 
-[SliverCard](https://pub.dev/documentation/boxy/latest/slivers/SliverCard-class.html) is a [Card](https://api.flutter.dev/flutter/material/Card-class.html) that you can wrap slivers with:
+[SliverCard](https://pub.dev/documentation/boxy/latest/slivers/SliverCard-class.html) is a [Card](https://api.flutter.dev/flutter/material/Card-class.html) that you can wrap slivers in:
 
 ![](<../.gitbook/assets/image (1) (1).png>)
 
