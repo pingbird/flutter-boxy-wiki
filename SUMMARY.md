@@ -23,6 +23,10 @@
 * [Example: Evenly Sized Row](customboxy/example-multiple-children.md)
 * [Example: Product Tile](customboxy/example-product-tile.md)
 
+## Flex
+
+* [Cross-axis alignment](flex/cross-axis-alignment.md)
+
 ## 🟪 Slivers
 
 * [SliverContainer](slivers/slivercontainer.md)
