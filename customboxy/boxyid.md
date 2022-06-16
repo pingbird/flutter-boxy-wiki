@@ -60,7 +60,7 @@ You can pass data to the delegate using the [data](https://pub.dev/documentation
 
 This is the same underlying mechanism that [Expanded](https://api.flutter.dev/flutter/widgets/Expanded-class.html) uses to tell the [Row](https://api.flutter.dev/flutter/widgets/Row-class.html) or [Column](https://api.flutter.dev/flutter/widgets/Column-class.html) how much space it should take up.
 
-![](../.gitbook/assets/image.png)
+![](<../.gitbook/assets/image (1).png>)
 
 ```dart
 class MyWidget extends StatelessWidget {

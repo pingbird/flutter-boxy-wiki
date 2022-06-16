@@ -2,7 +2,7 @@
 
 To start, create a [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) widget and pass it a subclass of [BoxyDelegate](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate-class.html):
 
-![](<../.gitbook/assets/image (1) (1) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png>)
 
 ```dart
 class MyWidget extends StatelessWidget {

@@ -2,7 +2,7 @@
 
 [SliverCard](https://pub.dev/documentation/boxy/latest/slivers/SliverCard-class.html) is a [Card](https://api.flutter.dev/flutter/material/Card-class.html) that you can wrap slivers with:
 
-![](<../.gitbook/assets/image (1).png>)
+![](<../.gitbook/assets/image (1) (1).png>)
 
 ```dart
 final colors = [

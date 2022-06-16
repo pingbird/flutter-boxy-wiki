@@ -2,7 +2,7 @@
 
 Another way we can customize the way children are painted is with [layers](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/layers.html), this is a fancy wrapper around the low level compositing [Layers](https://api.flutter.dev/flutter/rendering/Layer-class.html) used for widgets like [Opacity](https://api.flutter.dev/flutter/widgets/Opacity-class.html) and [BackdropFilter](https://api.flutter.dev/flutter/widgets/BackdropFilter-class.html).
 
-![](<../.gitbook/assets/image (1) (1) (1).png>)
+![](<../.gitbook/assets/image (1) (1) (1) (1).png>)
 
 ```dart
 class MyWidget extends StatelessWidget {
