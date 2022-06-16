@@ -2,7 +2,7 @@
 
 One of the limitations of a regular [Row](https://api.flutter.dev/flutter/widgets/Row-class.html) or [Column](https://api.flutter.dev/flutter/widgets/Column-class.html) is not being able to use a different cross-axis alignment for each child.
 
-With Boxy, you can use [BoxyFlexible.align](https://pub.dev/documentation/boxy/latest/flex/BoxyFlexible/BoxyFlexible.align.html) to exactly that:
+[BoxyFlexible.align](https://pub.dev/documentation/boxy/latest/flex/BoxyFlexible/BoxyFlexible.align.html) lets you do exactly that:
 
 ![BoxyColumn](../.gitbook/assets/ftest\_yiTCTxZ1s9.png)
 
