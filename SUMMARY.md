@@ -2,7 +2,7 @@
 
 * [Welcome](README.md)
 
-## 🟩 RenderObjects
+## ⬜ RenderObjects
 
 * [Introduction to Layout](renderobjects/introduction-to-layout.md)
 * [BoxConstraints](renderobjects/boxconstraints.md)
@@ -10,7 +10,7 @@
 * [Interactive Example](renderobjects/interactive-example.md)
 * [Learn More](renderobjects/learn-more.md)
 
-## 🟦 CustomBoxy
+## ⬜ CustomBoxy
 
 * [Introduction to CustomBoxy](customboxy/introduction-to-customboxy.md)
 * [Hello, World!](customboxy/hello-world.md)
@@ -23,11 +23,12 @@
 * [Example: Evenly Sized Row](customboxy/example-multiple-children.md)
 * [Example: Product Tile](customboxy/example-product-tile.md)
 
-## Flex
+## ⬜ Flex
 
 * [Cross-axis alignment](flex/cross-axis-alignment.md)
+* [Dominant](flex/dominant.md)
 
-## 🟪 Slivers
+## ⬜ Slivers
 
 * [SliverContainer](slivers/slivercontainer.md)
 * [SliverCard](slivers/slivercard.md)

@@ -4,7 +4,7 @@ One of the limitations of a regular [Row](https://api.flutter.dev/flutter/widget
 
 With Boxy, you can use [BoxyFlexible.align](https://pub.dev/documentation/boxy/latest/flex/BoxyFlexible/BoxyFlexible.align.html) to exactly that:
 
-![BoxyColumn](../.gitbook/assets/ftest\_eu3VbiIbLE.png)
+![BoxyColumn](../.gitbook/assets/ftest\_yiTCTxZ1s9.png)
 
 {% code title="" %}
 ```dart
