@@ -1,6 +1,8 @@
 # Widget Inflation
 
-The most powerful feature of Boxy is the ability to [inflate](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/inflate.html) arbitrary widgets at layout time.&#x20;
+The most powerful feature of Boxy is the ability to [inflate](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/inflate.html) arbitrary widgets at layout time.
+
+In the below example we construct a [Text](https://api.flutter.dev/flutter/widgets/Text-class.html) widget based on the size of another child. This would be extremely difficult to accomplish without Boxy, even using a custom [Element](https://api.flutter.dev/flutter/widgets/Element-class.html) and [RenderObject](https://api.flutter.dev/flutter/rendering/RenderObject-class.html).
 
 ![](../.gitbook/assets/ftest\_m3xCKjHuvM.png)
 
