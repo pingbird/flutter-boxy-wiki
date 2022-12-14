@@ -2,7 +2,7 @@
 
 Before creating your own [RenderObject](https://api.flutter.dev/flutter/rendering/RenderObject-class.html), we should understand the relationship between the Widget, Element, and Render trees.
 
-![](../.gitbook/assets/trees.png)
+![](trees.png)
 
 You are probably familiar with how [State](https://api.flutter.dev/flutter/widgets/State-class.html) works, it's a persistent instance with methods you can override to know when to initialize, build, and dispose.
 

@@ -2,7 +2,6 @@
 
 To lay out child widgets we first grab a [BoxyChild](https://pub.dev/documentation/boxy/latest/boxy/BoxyChild-class.html) instance, call layout, and optionally position it.
 
-{% code title="" %}
 ```dart
 @override
 Size layout() {
@@ -20,7 +19,6 @@ Size layout() {
   return size;
 }
 ```
-{% endcode %}
 
 [BoxyChild](https://pub.dev/documentation/boxy/latest/boxy/BoxyChild-class.html) is just a fancy wrapper around [RenderBox](https://api.flutter.dev/flutter/rendering/RenderBox-class.html), it has a bunch of methods and properties that are useful for layout:
 

@@ -4,9 +4,8 @@ One of the limitations of a regular [Row](https://api.flutter.dev/flutter/widget
 
 [BoxyFlexible.align](https://pub.dev/documentation/boxy/latest/flex/BoxyFlexible/BoxyFlexible.align.html) lets you do exactly that:
 
-![BoxyColumn](../.gitbook/assets/ftest\_yiTCTxZ1s9.png)
+![BoxyColumn](ftest_yiTCTxZ1s9.png)
 
-{% code title="" %}
 ```dart
 class MyWidget extends StatelessWidget {
   const MyWidget({Key? key}) : super(key: key);
@@ -67,4 +66,3 @@ class MyWidget extends StatelessWidget {
   }
 }
 ```
-{% endcode %}

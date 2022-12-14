@@ -16,7 +16,6 @@ Size layout(BoxConstraints constraints) {
   return childSize;
 }
 ```
-{% endcode %}
 
 This is called the [RenderBox](https://api.flutter.dev/flutter/rendering/RenderBox-class.html) protocol, it's simplicity is what enables animations in Flutter to outperform native Android, iOS, and web.
 

@@ -4,11 +4,11 @@
 
 In the below example we have two [SliverLists](https://api.flutter.dev/flutter/widgets/SliverList-class.html) with [DecoratedBox](https://api.flutter.dev/flutter/widgets/DecoratedBox-class.html) as a background:
 
-![](../.gitbook/assets/ftest\_jInY0aelEY.png)
+![](ftest_jInY0aelEY.png)
 
 By giving the [CustomScrollView](https://api.flutter.dev/flutter/widgets/CustomScrollView-class.html) a clip of [Clip.none](https://api.flutter.dev/flutter/dart-ui/Clip.html), you can see how this is possible:
 
-![Same thing but without clipping](../.gitbook/assets/ftest\_IKQC577sJP.png)
+![Same thing but without clipping](ftest_IKQC577sJP.png)
 
 The [DecoratedBoxes](https://api.flutter.dev/flutter/widgets/DecoratedBox-class.html) are stretched so that their top and bottom edge are barely out of view, while the contents of [SliverList](https://api.flutter.dev/flutter/widgets/SliverList-class.html) are still lazily built.
 

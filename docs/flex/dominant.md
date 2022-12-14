@@ -2,7 +2,7 @@
 
 The [Dominant](https://pub.dev/documentation/boxy/latest/flex/Dominant-class.html) widget tells a [BoxyRow](https://pub.dev/documentation/boxy/latest/flex/BoxyRow-class.html) or [BoxyColumn](https://pub.dev/documentation/boxy/latest/flex/BoxyColumn-class.html) to constrain every other widget to match its cross-axis size:
 
-![](../.gitbook/assets/image.png)
+![](image.png)
 
 ```dart
 class MyWidget extends StatelessWidget {
@@ -36,7 +36,7 @@ Due to the quirky nature of [ParentDataWidgets](https://api.flutter.dev/flutter/
 
 To make it expanded, use the alternate [Dominant.expanded](https://pub.dev/documentation/boxy/latest/flex/Dominant/Dominant.expanded.html) constructor:
 
-![](<../.gitbook/assets/ftest\_nmZYWRSqsy (1).png>)
+![](ftest_nmZYWRSqsy%20(1).png)
 
 ```dart
 class MyWidget extends StatelessWidget {

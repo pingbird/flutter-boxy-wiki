@@ -6,7 +6,7 @@ Normally for something like this you would use Stack, but that unfortunately doe
 
 ### Complete Example
 
-![](../.gitbook/assets/ftest\_GCKLEFXEnu.png)
+![](ftest_GCKLEFXEnu.png)
 
 ```dart
 class MyWidget extends StatelessWidget {
@@ -157,4 +157,12 @@ class ProductTileDelegate extends BoxyDelegate {
 
 With some images and text, we get a finished product tile that is fully adaptive:
 
-![default state](../.gitbook/assets/ftest\_UTDKLOvcAU.png) ![expanded title](../.gitbook/assets/ftest\_UHm3QStdY7.png) ![expanded info](../.gitbook/assets/ftest\_MyQB0wRzDZ.png) ![expanded seller](<../.gitbook/assets/ftest\_7Je17IzRnr (1).png>) ![constrained width](../.gitbook/assets/ftest\_X0YPu1QG3P.png)
+![default state](ftest_UTDKLOvcAU.png)
+
+![expanded title](ftest_UHm3QStdY7.png)
+
+![expanded info](ftest_MyQB0wRzDZ.png)
+
+![expanded seller](ftest_7Je17IzRnr.png)
+
+![constrained width](ftest_X0YPu1QG3P.png)

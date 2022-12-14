@@ -8,7 +8,7 @@ The end goal of this example is to take an arbitrarily sized widget, and size it
 
 To make the widget square, we need to create a [BoxyDelegate](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate-class.html) that overrides [layout](https://pub.dev/documentation/boxy/latest/boxy/BoxyDelegate/layout.html):
 
-![](<../.gitbook/assets/image (1) (1) (1).png>)
+![](image%20(1)%20(1)%20(1).png)
 
 ```dart
 class Square extends StatelessWidget {

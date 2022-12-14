@@ -1,6 +1,6 @@
 # Interactive Example
 
-![](<../.gitbook/assets/image (2).png>)
+![](image%20(2).png)
 
 {% embed url="https://dartpad.dartlang.org/?id=0d12f9092860c0793e57eb3b9cad2926" %}
 DartPad - [square-opacity.dart](https://gist.github.com/PixelToast/0d12f9092860c0793e57eb3b9cad2926)
@@ -23,5 +23,5 @@ The original goal of Boxy was to boil this down into a simple, intuitive delegat
 Check out the introduction to [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) next:
 
 {% content-ref url="../customboxy/introduction-to-customboxy.md" %}
-[introduction-to-customboxy.md](../customboxy/introduction-to-customboxy.md)
+[introduction-to-customboxy.md](introduction-to-customboxy.md)
 {% endcontent-ref %}

@@ -2,7 +2,7 @@
 
 By overriding [paint](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/paint.html) or [paintForeground](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/paintForeground.html) you can get functionality similar to [CustomPaint](https://api.flutter.dev/flutter/widgets/CustomPaint-class.html):
 
-![](../.gitbook/assets/ftest\_frMkXTvID9.png)
+![](ftest_frMkXTvID9.png)
 
 ```dart
 class MyBoxyDelegate extends BoxyDelegate {
@@ -25,7 +25,7 @@ The [paint](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDeleg
 
 We can customize the way children are painted by overriding [paintChildren](https://api.flutter.dev/flutter/rendering/FlowDelegate/paintChildren.html), this is useful if you want to change their paint order for example:
 
-![Without paintChildren](../.gitbook/assets/ftest\_fcR5Z2lEZD.png) ![With paintChildren](<../.gitbook/assets/image (1) (1) (1) (1) (1).png>)
+![Without paintChildren](ftest_fcR5Z2lEZD.png) ![With paintChildren](image%20(1)%20(1)%20(1)%20(1)%20(1).png)
 
 ```dart
 class MyWidget extends StatelessWidget {
@@ -62,9 +62,8 @@ class MyBoxyDelegate extends BoxyDelegate {
 
 Note that the [canvas](https://pub.dev/documentation/boxy/latest/render\_boxy/BaseBoxyDelegate/canvas.html) is still available, so we can use [paintChildren](https://api.flutter.dev/flutter/rendering/FlowDelegate/paintChildren.html) to paint things between children:
 
-![](<../.gitbook/assets/image (3).png>)
+![](image%20(3).png)
 
-{% code title="" %}
 ```dart
 class MyBoxyDelegate extends BoxyDelegate {
   @override
@@ -83,4 +82,3 @@ class MyBoxyDelegate extends BoxyDelegate {
   }
 }
 ```
-{% endcode %}

@@ -6,7 +6,7 @@ In this example we take a simple row of widgets and make each of them the same s
 
 If we throw three text widgets in a Row it looks a little ugly:
 
-![](../.gitbook/assets/ftest\_4KetSQxXfe.png)
+![](ftest_4KetSQxXfe.png)
 
 ```dart
 class MyWidget extends StatelessWidget {
@@ -60,7 +60,7 @@ class MyWidget extends StatelessWidget {
 
 To make this row prettier we want each child to be the same width, fortunately [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) allows us to do that:
 
-![](../.gitbook/assets/ftest\_2ETeGIqwH8.png)
+![](ftest_2ETeGIqwH8.png)
 
 ```dart
 class EvenSized extends StatelessWidget {
@@ -133,4 +133,4 @@ class EvenSizedBoxy extends BoxyDelegate {
 
 Constraining the layout's width shows that the children are distributed evenly and don't overflow, the text has correct wrapping behavior as well:
 
-![](../.gitbook/assets/ftest\_pqqiRVzZwz.png)
+![](ftest_pqqiRVzZwz.png)

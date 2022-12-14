@@ -4,7 +4,7 @@ The most powerful feature of Boxy is the ability to [inflate](https://pub.dev/do
 
 In the below example we construct a [Text](https://api.flutter.dev/flutter/widgets/Text-class.html) widget based on the size of another child. This would be extremely difficult to accomplish without Boxy, even using a custom [Element](https://api.flutter.dev/flutter/widgets/Element-class.html) and [RenderObject](https://api.flutter.dev/flutter/rendering/RenderObject-class.html).
 
-![](../.gitbook/assets/ftest\_m3xCKjHuvM.png)
+![](ftest_m3xCKjHuvM.png)
 
 ```dart
 class MyWidget extends StatelessWidget {
