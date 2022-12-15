@@ -1,4 +1,4 @@
-# Example: Square Layout
+# Square Layout
 
 In the interactive example of [Introduction To Layout](https://docs.boxy.wiki/renderobjects/interactive-example) we showed a custom [RenderObject](https://api.flutter.dev/flutter/rendering/RenderObject-class.html) with a single child, let's see how [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) can cut down all of the boilerplate.
 

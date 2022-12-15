@@ -1,4 +1,4 @@
-# Example: Evenly Sized Row
+# Evenly Sized Row
 
 In this example we take a simple row of widgets and make each of them the same size. This one is a little harder than the previous example because there are an arbitrary number of children.
 

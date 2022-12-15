@@ -8,8 +8,7 @@ Most of the layout widgets you use in Flutter are actually pretty simple and ele
 
 You can think of layout in Flutter as a bunch of functions that take in BoxConstraints and return a Size:
 
-{% code title="(simplification)" %}
-```dart
+```dart title="(simplification)"
 Size layout(BoxConstraints constraints) {
   final childSize = child.layout(BoxConstraints()));
   child.position(Offset.zero);
@@ -17,7 +16,7 @@ Size layout(BoxConstraints constraints) {
 }
 ```
 
-This is called the [RenderBox](https://api.flutter.dev/flutter/rendering/RenderBox-class.html) protocol, it's simplicity is what enables animations in Flutter to outperform native Android, iOS, and web.
+This is called the [RenderBox](https://api.flutter.dev/flutter/rendering/RenderBox-class.html) protocol, it's simplicity is what enables animations in Flutter to outperform native Android and iOS.
 
 The downside of being simple is that developers have to put in a little extra effort to constrain widgets and avoid those pesky flex overflow, unbounded constraints, and infinite size errors.
 

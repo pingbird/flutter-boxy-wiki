@@ -16,6 +16,6 @@ When [RenderObjectElement](https://api.flutter.dev/flutter/widgets/RenderObjectE
 
 For example, [ColoredBox](https://api.flutter.dev/flutter/widgets/ColoredBox-class.html) is a [SingleChildRenderObjectWidget](https://api.flutter.dev/flutter/widgets/SingleChildRenderObjectWidget-class.html) that creates a [SingleChildRenderObjectElement](https://api.flutter.dev/flutter/widgets/SingleChildRenderObjectElement-class.html), and [Row](https://api.flutter.dev/flutter/widgets/Row-class.html) is a [MultiChildRenderObjectWidget](https://api.flutter.dev/flutter/widgets/MultiChildRenderObjectWidget-class.html) that creates a [MultiChildRenderObjectElement](https://api.flutter.dev/flutter/widgets/MultiChildRenderObjectElement-class.html).
 
-{% hint style="info" %}
-There is technically no such thing as a "widget tree", widgets are more like user-defined data structures that do not share a root node. The term is often conflated with the element tree, since elements form a global tree and provide context.
-{% endhint %}
+!!! note
+    
+    There is technically no such thing as a "widget tree", widgets are more like user-defined data structures that do not share a root node. People are usually referring to the element tree, since elements form a global tree and provide context.

@@ -1,4 +1,4 @@
-# Example: Product Tile
+# Product Tile
 
 This is an interesting layout I stumbled upon when searching StackOverflow, it contains Title, Seller, and Info widgets arranged so that the Seller is positioned above the space between Title and Info.
 

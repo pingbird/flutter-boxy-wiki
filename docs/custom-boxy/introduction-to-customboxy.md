@@ -1,6 +1,6 @@
 # Introduction to CustomBoxy
 
-{% embed url="https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html" %}
+[:fontawesome-solid-book: CustomBoxy API Docs](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html){ .md-button .md-button--primary .block }
 
 [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) is a widget that uses a delegate to implement a custom [RenderObject](https://api.flutter.dev/flutter/rendering/RenderObject-class.html).
 

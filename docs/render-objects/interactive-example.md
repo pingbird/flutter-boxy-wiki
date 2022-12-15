@@ -2,9 +2,7 @@
 
 ![](image%20(2).png)
 
-{% embed url="https://dartpad.dartlang.org/?id=0d12f9092860c0793e57eb3b9cad2926" %}
-DartPad - [square-opacity.dart](https://gist.github.com/PixelToast/0d12f9092860c0793e57eb3b9cad2926)
-{% endembed %}
+[:simple-dart: DartPad](https://dartpad.dartlang.org/?id=0d12f9092860c0793e57eb3b9cad2926){ .md-button .md-button--primary .block }
 
 It takes a child (Hello, World!) and ensures the height equals the width, the custom RenderObject also animates opacity to show how [Layer](https://api.flutter.dev/flutter/rendering/Layer-class.html)s work.
 
@@ -22,6 +20,4 @@ The original goal of Boxy was to boil this down into a simple, intuitive delegat
 
 Check out the introduction to [CustomBoxy](https://pub.dev/documentation/boxy/latest/boxy/CustomBoxy-class.html) next:
 
-{% content-ref url="../customboxy/introduction-to-customboxy.md" %}
-[introduction-to-customboxy.md](introduction-to-customboxy.md)
-{% endcontent-ref %}
+[:fontawesome-solid-book: Introduction to CustomBoxy](../custom-boxy/introduction-to-customboxy.md){ .md-button .md-button--primary .block }
