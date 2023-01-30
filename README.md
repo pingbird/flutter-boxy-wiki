@@ -1,3 +1,1 @@
-# flutter-boxy-wiki
-
-This is the source code of https://boxy.wiki
+# Moved to [PixelToast/boxy](https://github.com/PixelToast/boxy/tree/master/website)
